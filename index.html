@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/default.js" defer></script>
+    <script src="./js/path_enter.js" defer></script>
+    <script src="./js/content_click.js" defer></script>
+    <script src="./js/new_object.js" defer></script>
+    <script src="./js/delete_item.js" defer></script>
+    <script src="./js/back-next.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>File Explorer</title>
+  </head>
+  <body>
+    <div id="nav">
+      <div>
+        <i class="fas fa-backward nav-icon deactive" id="back"></i>
+      </div>
+      <div>
+        <i class="fas fa-forward nav-icon deactive" id="next"></i>
+      </div>
+      <div>
+        <i class="fas fa-plus nav-icon" id="file-add"></i>
+      </div>
+      <div>
+        <i class="fas fa-folder-plus nav-icon" id="folder-add"></i>
+      </div>
+      <div>
+        <i class="fas fa-trash nav-icon disabled" id="delete"></i>
+      </div>
+      
+    </div>
+    <div id="path">
+      <input type="text" id="path-container" onfocus="this.oldValue = this.value"/>
+    </div>
+    <div id="search"></div>
+    <div id="contents"></div>
+    <div id="no-path">
+      <h1>The given path doesn't exist!</h1>
+      <span id="no-path-close">&times;</span>
+    </div>
+    <div id="new">
+      <input placeholder="Enter new name" id="new-input"></input>
+      <h1>Invalid name!</h1>
+      <button id="new-close">Done</button>
+    </div>
+    <div id="new-folder">
+      <input placeholder="Enter new name" id="new-folder-input"></input>
+      <h1>Invalid name!</h1>
+      <button id="new-folder-close">Done</button>
+    </div>
+  </body>
+</html>
