@@ -1,0 +1,30 @@
+$("#back").click(() => {
+  if ($("#back").hasClass("deactive")) return;
+  if (previousValue.length == 0) return;
+  $("#contents").empty();
+  const previous = previousValue[previousValue.length - 1];
+  addObjects(previous, fs.readdirSync(previous));
+  contentClick();
+  nextValue.push($("#path-container").val());
+  $("#path-container").val(previous);
+  previousValue.splice(-1, 1);
+  nextValue = removeDuplicates(nextValue);
+  previousValue = removeDuplicates(previousValue);
+  if (previousValue.length == 0) $("#back").addClass("deactive");
+  $("#next").removeClass("deactive");
+});
+$("#next").click(() => {
+  if ($("#next").hasClass("deactive")) return;
+  if (nextValue.length == 0) return;
+  const next = nextValue[nextValue.length - 1];
+  $("#contents").empty();
+  addObjects(next, fs.readdirSync(next));
+  contentClick();
+  nextValue.splice(nextValue.length - 1, 1);
+  previousValue.push($("#path-container").val());
+  nextValue = removeDuplicates(nextValue);
+  previousValue = removeDuplicates(previousValue);
+  $("#path-container").val(next);
+  if (nextValue.length == 0) $("#next").addClass("deactive");
+  $("#back").removeClass("deactive");
+});
